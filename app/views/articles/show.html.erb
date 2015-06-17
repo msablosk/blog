@@ -9,7 +9,11 @@
 			<%= link_to 'edit', edit_article_path(@article) %>
 			<%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "Really delete this?"} %>
 		</div>
-		
+		<div class="comments">
+			<h3>Comments (<%= @article.comments.size %>)</h3>
+			<%= render partial: "articles/comment", collection: @article.comments %>
+		</div>
+		<%= render partial: "comments/form" %>
 		<%= link_to "<<< Back To All Articles", articles_path, class: 'allArticle' %>
 		
 	</div>
