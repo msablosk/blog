@@ -8,13 +8,14 @@
 
 		<div class="article">
 
-			<h1><%= a.title %></h1>
+			<h1><%= link_to a.title, article_path(a), class: 'articleTitle' %></h1>
 
 			<p><%= a.body %></p>
 
 		</div>
 
 		<% end %>
-
+		
+		<%= link_to "New Article", new_article_path, class: 'newArticle' %>
 	</div>
 </div>

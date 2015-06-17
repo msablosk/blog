@@ -1,0 +1,14 @@
+<div class="container">
+
+	<h1>Article</h1>
+
+	<div class="articles">
+		<div class="article">
+			<h1><%= @article.title %></h1>
+			<p><%= @article.body %></p>
+		</div>
+		
+		<%= link_to "<<< Back To All Articles", articles_path, class: 'allArticle' %>
+		
+	</div>
+</div>
