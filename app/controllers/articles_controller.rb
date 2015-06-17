@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-
+	include ArticlesHelper
 	def index
-		@articles = Article.all
+		@articles = Article.last(3)
 	end
 
 	def show
@@ -9,6 +9,18 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		
+		@article = Article.new
+	end
+
+	def create
+		@article = Article.new(articles_params)
+		@article.save
+		redirect_to article_path(@article.id)
+	end
+
+	def destroy 
+		@article = Article.find(params[:id])
+		@article.destroy
+		redirect_to articles_path
 	end
 end
